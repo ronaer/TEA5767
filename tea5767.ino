@@ -28,8 +28,8 @@ void setup() {
   lcd.setCursor(0, 1);
   lcd.print("Dr.TRonikYouTube");
   delay(3000);
-  //memo = 88.01;  //Execute just once
-  //EEPROM.put(0, memo);  //Execute just once 
+  //memo = 88.01;  //İlk olarak yorumsuz yüklenip hafızaya alınıp, sonra yorumlu yüklenebilir.
+  //EEPROM.put(0, memo);  //İlk olarak yorumsuz yüklenip hafızaya alınıp, sonra yorumlu yüklenebilir.
   EEPROM.get(0, memo);
   delay(500);  
   lcd.clear();
@@ -48,13 +48,11 @@ void loop() {
     chngStation();
   }
   if (digitalRead(8) == LOW) {
-
     audioFlag = !audioFlag;
     if (audioFlag == 1) {
       radio.mute();
       lcd.setCursor(15, 0);
       lcd.print("m");
-
     } else {
       radio.turnTheSoundBackOn();
       lcd.setCursor(15, 0);
@@ -68,7 +66,6 @@ void loop() {
    delay(100);  
    digitalWrite(13, HIGH);}
   else digitalWrite(13, LOW);
-  
 }
 
 void chngStation() {
@@ -78,8 +75,6 @@ void chngStation() {
   delay(100);
   lcd.setCursor(0, 0);
   lcd.print(s_name[i]);
-  // if (radio.isStereo() == 1) lcd.print("FM Stereo");
-  // if (radio.isStereo() == 0) lcd.print("FM Mono");
   lcd.setCursor(0, 1);
   lcd.print("FM ") + lcd.print(radio.readFrequencyInMHz(), 1) + lcd.print("MHz");
   lcd.setCursor(13, 1);
