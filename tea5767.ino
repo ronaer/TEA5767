@@ -6,7 +6,7 @@
 TEA5767N radio = TEA5767N();
 
 #include <LiquidCrystal_I2C.h>       //I²C li LCD için gerekli...
-LiquidCrystal_I2C lcd(0x3F, 20, 4);  //Kullandığımız LCD I²C adresi ve karakter satır sayısı
+LiquidCrystal_I2C lcd(0x3F, 16, 2);  //Kullandığımız LCD I²C adresi ve karakter satır sayısı
 #include <Wire.h>                    //I²C için gerekli...
 #include <EEPROM.h>;
 float memo;
